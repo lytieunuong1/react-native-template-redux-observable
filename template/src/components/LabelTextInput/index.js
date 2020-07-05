@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { View, StyleSheet, Animated, TextInput } from 'react-native';
+import { View, StyleSheet, Animated, TextInput, Platform } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { mainFont } from '~/assets/fonts';
 import { colors } from '~/assets/colors';
@@ -36,7 +36,7 @@ const _returnAnimatedTitleStyles = ({ isFieldActive, position }) => {
   return {
     top: position.interpolate({
       inputRange: [0, 1],
-      outputRange: [20, 0],
+      outputRange: [30, 5],
     }),
     ...(isFieldActive ? styles.activeStyle : styles.inactiveStyle),
   }
@@ -74,7 +74,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 10,
-    height: 52,
+    paddingBottom: 0,
+    paddingTop: 10,
+    height: 58,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(125,93,192,0.1)',
   },
@@ -88,6 +90,11 @@ const styles = StyleSheet.create({
   textInput: {
     fontSize: 15,
     flex: 1,
+    ...Platform.select({
+      ios: {
+        height: 46
+      }
+    }),
     color: colors.textColor,
   },
   container: {
