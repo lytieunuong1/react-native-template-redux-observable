@@ -34,23 +34,3 @@ export const appLogoutFailure = () => ({
 export const appLogoutSuccess = () => ({
   type: actionTypes.APP_LOGOUT_SUCCESS
 })
-
-
-export const appGetBalance = () => ({
-  type: actionTypes.APP_GET_BALANCE_REQUEST
-})
-
-export const appGetBalanceFailure = (error) => ({
-  type: actionTypes.APP_GET_BALANCE_FAILURE,
-  error
-})
-
-export const appGetBalanceSuccess = (balance) => ({
-  type: actionTypes.APP_GET_BALANCE_SUCCESS,
-  balance
-})
-
-export const appSetDeepLink = (deepLink) => ({
-  type: actionTypes.APP_SET_DEEP_LINK,
-  deepLink
-})

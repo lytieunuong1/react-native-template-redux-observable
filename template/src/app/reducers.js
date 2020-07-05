@@ -5,8 +5,6 @@ const initialState = {
   error: undefined,
   isLoading: false,
   logoutSuccessfully: false,
-  balance: 0,
-  deepLink: undefined
 }
 
 export default appReducer = (state = initialState, action) => {
@@ -49,29 +47,6 @@ export default appReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.error,
-      }
-    case actionTypes.APP_GET_BALANCE_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        error: undefined,
-      }
-    case actionTypes.APP_GET_BALANCE_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        balance: action.balance,
-      }
-    case actionTypes.APP_GET_BALANCE_FAILURE:
-      return {
-        ...state,
-        isLoading: false,
-        error: action.error,
-      }
-    case actionTypes.APP_SET_DEEP_LINK:
-      return {
-        ...state,
-        deepLink: action.deepLink
       }
     default:
       return state

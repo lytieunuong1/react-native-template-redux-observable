@@ -4,6 +4,8 @@ import FlashMessage from 'react-native-flash-message';
 import { appProducts } from '~/app/constants';
 import LoadingView from '../LoadingView';
 const DEFAULT_BOTTOM_POSITION = -338
+const DURATION_TIME_SHOW = 700
+const DURATION_TIME_HIDE = 300
 export default class ModalUpView extends Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ export default class ModalUpView extends Component {
         this.state.bottomPosition,
         {
           toValue: 0,
-          duration: 700,
+          duration: DURATION_TIME_SHOW,
           useNativeDriver: false
         }
       ).start();
@@ -33,7 +35,7 @@ export default class ModalUpView extends Component {
       this.state.bottomPosition,
       {
         toValue: this.props.defaultBottomPosition || DEFAULT_BOTTOM_POSITION,
-        duration: 300,
+        duration: DURATION_TIME_HIDE,
         useNativeDriver: false
       }
     ).start(() => {
@@ -62,7 +64,7 @@ export default class ModalUpView extends Component {
         <View style={styles.container}>
           <TouchableOpacity onPressOut={this.hide} style={styles.touchBackground} >
           </TouchableOpacity>
-          <Animated.View style={[styles.topUpView, { bottom: this.state.bottomPosition }]}>
+          <Animated.View style={[styles.pullUpView, { bottom: this.state.bottomPosition }]}>
             <View style={styles.topLine}></View>
             {this.props.ContentComponent}
           </Animated.View>
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({
   touchBackground: {
     flex: 1
   },
-  topUpView: {
+  pullUpView: {
     position: 'absolute',
     left: 10,
     right: 10,

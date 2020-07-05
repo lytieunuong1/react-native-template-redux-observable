@@ -26,8 +26,6 @@ const LabelTextInput = ({ handleChange, handleBlur, values, errors, field, dirty
           onChangeText={handleChange(field)}
           {...inputProps}
         />
-        {/* {isValid && <Image source={icons.valid} style={styles.validIcon} />} */}
-        {/* {isValid && <Icon name='check' color={colors.primaryColor} size={20} />} */}
         {isInvalid && <Icon name='error' color={colors.dangerColor} size={20} />}
       </View>
     </View>

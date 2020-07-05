@@ -2,7 +2,6 @@ import { ofType } from "redux-observable";
 import * as actionTypes from './actionTypes'
 import * as actions from './actions'
 import { map, catchError, flatMap } from 'rxjs/operators';
-import { api } from "~/api";
 import { of, Observable } from "rxjs";
 import AsyncStorage from "@react-native-community/async-storage";
 import { storeKey } from "~/app/constants";

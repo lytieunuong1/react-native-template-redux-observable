@@ -3,7 +3,7 @@ import { login } from './actions';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useEffect } from 'react';
-import { Localized, showErrorMessage, showSuccessMessage } from '~/utils';
+import { Localized, showErrorMessage } from '~/utils';
 import { useNavigation } from '@react-navigation/native';
 import screens from '~/navigation/screens';
 import { appStoreUser, appGetUser } from '~/app/actions';
